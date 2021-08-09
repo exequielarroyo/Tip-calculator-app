@@ -9,8 +9,9 @@ const tipAmount = document.querySelector('#tipAmount');
 const total = document.querySelector('#total');
 
 const tipPercentElements = document.querySelectorAll('input.percentInput');
+
+// Set tip value base on radio button id
 for (let i = 0; i < tipPercentElements.length; i++) {
-    // console.log(tipPercentElements[i]);
     tipPercentElements[i].addEventListener('click', e => {
         if (tipPercentElements[i].checked == true) {
             if (tipPercentElements[i].getAttribute('id') == 'item-1') {
@@ -29,32 +30,21 @@ for (let i = 0; i < tipPercentElements.length; i++) {
     });
 }
 
-
 let bill = 0, tip = 0, people = 0;
 
-billElement.addEventListener('change', e => {
+billElement.addEventListener('input', e => {
     bill = billElement.value;
     calculate(bill, tip, people);
 });
 
-customElement.addEventListener('change', e => {
+customElement.addEventListener('input', e => {
     tip = customElement.value;
     calculate(bill, tip, people);
-});
-
-customElement.addEventListener('click', e => {
-    tip = 0;
     clearPercent();
+
 });
 
-function clearPercent() {
-    for (let i = 0; i < tipPercentElements.length; i++) {
-        tipPercentElements[i].checked = false;
-    }
-}
-
-
-peopleElement.addEventListener('change', e => {
+peopleElement.addEventListener('input', e => {
     people = peopleElement.value;
     if (peopleElement.value == 0) {
         peopleElement.style.border = '2px solid red';
@@ -74,6 +64,12 @@ reset.addEventListener('click', e => {
     tipAmount.innerText = '';
     total.innerText = '';
 });
+
+function clearPercent() {
+    for (let i = 0; i < tipPercentElements.length; i++) {
+        tipPercentElements[i].checked = false;
+    }
+}
 
 function calculate(bill, tip, people) {
     if (bill > 0 && people > 0) {
