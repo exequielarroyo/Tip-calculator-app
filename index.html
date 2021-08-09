@@ -22,18 +22,23 @@
       <div class="input">
         <div class="input-bill">
           <h5>Bill</h5>
-          <input type="number" placeholder="0">
+          <input id="bill" type="number" placeholder="0">
         </div>
         <div class="input-tip">
           <h5>Select Tip %</h5>
           <div class="input-option">
             <div class="input-grid">
-              <div class="input-item">5%</div>
-              <div class="input-item">10%</div>
-              <div class="input-item">15%</div>
-              <div class="input-item">25%</div>
-              <div class="input-item">50%</div>
-              <input class="input-item" type="number" name="Custom" id="custom" placeholder="Custom">
+              <input type="radio" class="percentInput" id="item-1" name="tip"></input>
+              <label for="item-1">5%</label>
+              <input type="radio" class="percentInput" id="item-2" name="tip"></input>
+              <label for="item-2">10%</label>
+              <input type="radio" class="percentInput" id="item-3" name="tip"></input>
+              <label for="item-3">15%</label>
+              <input type="radio" class="percentInput" id="item-4" name="tip"></input>
+              <label for="item-4">25%</label>
+              <input type="radio" class="percentInput" id="item-5" name="tip"></input>
+              <label for="item-5">50%</label>
+              <input type="number" name="custom" id="custom" placeholder="Custom">
             </div>
           </div>
         </div>
@@ -50,14 +55,14 @@
               <h5>Tip Amount</h5>
               <h6>/ person</h6>
             </div>
-            <p class="number">$0.00</p>
+            <p class="number" id="tipAmount">$0.00</p>
           </div>
           <div class="output-total">
             <div class="output-header">
               <h5>Total</h5>
               <h6>/ person</h6>
             </div>
-            <p class="number">$0.00</p>
+            <p class="number" id="total">$0.00</p>
           </div>
         </div>
         <button>Reset</button>
