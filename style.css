@@ -1,0 +1,219 @@
+@import url('https://fonts.google.com/specimen/Space+Mono');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;500;700&display=swap');
+:root {
+    --font: 'Space Mono';
+    --font-weight-4: 400;
+    --font-weight-5: 500;
+    --font-weight-7: 700;
+    --font-size-form-inputs: 24px;
+    --strong-cyan: hsl(172, 67%, 45%);
+    --very-dark-cyan: hsl(183, 100%, 15%);
+    --dark-grayish-cyan: hsl(186, 14%, 43%);
+    --dark-grayish-cyan: hsl(184, 14%, 56%);
+    --light-grayish-cyan: hsl(185, 41%, 84%);
+    --light-grayish-cyan: hsl(189, 41%, 97%);
+    --white: hsl(0, 0%, 100%)
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+    appearance: none;
+    margin: 0;
+}
+
+body {
+    background-color: rgb(211, 255, 255);
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font);
+}
+
+.splitter {
+    color: var(--very-dark-cyan);
+    /* color: var(--dark-grayish-cyan); */
+    text-align: center;
+    letter-spacing: 5px;
+    font-weight: 700;
+}
+
+.output-header h5 {
+    color: var(--white);
+}
+
+h5 {
+    color: var(--dark-grayish-cyan);
+}
+
+h6 {
+    color: var(--dark-grayish-cyan);
+}
+
+.card {
+    max-width: 600px;
+    background-color: var(--white);
+    border-radius: 1rem;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    align-items: stretch;
+    padding: 20px;
+    box-shadow: 0 5px 40px rgb(191, 231, 231);
+}
+
+input {
+    width: 100%;
+    background-color: var(--light-grayish-cyan);
+    border: 2px solid transparent;
+    outline: none;
+    padding: 12px;
+    border-radius: 5px;
+    font-family: var(--font);
+    text-align: end;
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: 10px;
+    font-weight: var(--font-weight-7);
+    font-size: 1rem;
+    color: var(--very-dark-cyan);
+}
+
+input:focus {
+    border: 2px solid var(--strong-cyan);
+}
+
+.input-bill input {
+    background-image: url('images/icon-dollar.svg');
+}
+
+.input-people input {
+    background-image: url('images/icon-person.svg');
+}
+
+input.input-item {
+    cursor: text;
+    background-color: var(--light-grayish-cyan);
+    color: var(--dark-grayish-cyan);
+    text-align: end;
+    font-weight: var(--font-weight-7);
+}
+
+input.input-item:hover {
+    background-color: var(--light-grayish-cyan);
+}
+
+.input {
+    padding-right: 20px;
+}
+
+.input-bill, .input-tip, .input-people {
+    margin-bottom: 20px;
+}
+
+.input-grid {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.input-item {
+    cursor: pointer;
+    color: var(--white);
+    background-color: var(--very-dark-cyan);
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+    font-weight: var(--font-weight-7);
+}
+
+.input-item:hover {
+    background-color: var(--strong-cyan);
+    color: var(--very-dark-cyan);
+}
+
+.input-item input {
+    width: 100%;
+}
+
+.input-people input {
+    width: 100%;
+}
+
+.output {
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--very-dark-cyan);
+}
+
+.output-amount, .output-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.number {
+    color: var(--strong-cyan);
+    font-weight: var(--font-weight-7);
+    font-size: 2.5rem;
+    line-height: 0;
+}
+
+button {
+    cursor: pointer;
+    color: var(--very-dark-cyan);
+    background-color: var(--strong-cyan);
+    font-family: var(--font);
+    font-weight: var(--font-weight-7);
+    text-transform: uppercase;
+    border: none;
+    padding: 10px 0;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: var(--light-grayish-cyan);
+}
+
+@media (max-width:500px) {
+    .card {
+        flex-direction: column;
+    }
+    .input {
+        padding-right: 0;
+    }
+    .input-people {
+        margin-bottom: 0;
+    }
+    .input-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .output {
+        margin-top: 20px;
+    }
+}
