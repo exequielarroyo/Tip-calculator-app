@@ -8,15 +8,6 @@ const reset = document.querySelector('button');
 const tipAmount = document.querySelector('#tipAmount');
 const total = document.querySelector('#total');
 
-// const tipPercentElements = document.querySelectorAll('.input-item');
-// const last = tipPercentElements[tipPercentElements.length - 1];
-// for (let i = 0; i < tipPercentElements.length; i++) {
-//     console.log(tipPercentElements[i]);
-//     tipPercentElements[i].addEventListener('click', e => {
-//         console.log(tipPercentElements[i]);
-//         tipPercentElements[i].classList.toggle('selected');
-//     });
-// }
 const tipPercentElements = document.querySelectorAll('input.percentInput');
 for (let i = 0; i < tipPercentElements.length; i++) {
     // console.log(tipPercentElements[i]);
@@ -52,6 +43,7 @@ customElement.addEventListener('change', e => {
 });
 
 customElement.addEventListener('click', e => {
+    tip = 0;
     clearPercent();
 });
 
@@ -61,9 +53,17 @@ function clearPercent() {
     }
 }
 
+
 peopleElement.addEventListener('change', e => {
     people = peopleElement.value;
-    calculate(bill, tip, people);
+    if (peopleElement.value == 0) {
+        peopleElement.style.border = '2px solid red';
+        document.querySelector('#error').style.display = 'block';
+    } else {
+        peopleElement.style.border = '2px solid transparent';
+        document.querySelector('#error').style.display = 'none';
+        calculate(bill, tip, people);
+    }
 });
 
 reset.addEventListener('click', e => {
@@ -76,7 +76,7 @@ reset.addEventListener('click', e => {
 });
 
 function calculate(bill, tip, people) {
-    if (bill !== 0 && people !== 0) {
+    if (bill > 0 && people > 0) {
         const tipPercent = tip / 100;
         const billPerPeople = bill / people;
         const tipAmountPerPerson = billPerPeople * tipPercent;
